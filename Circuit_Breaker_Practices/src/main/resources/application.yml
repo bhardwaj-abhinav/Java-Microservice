@@ -1,0 +1,28 @@
+spring: 
+ application:
+  name: loan-service
+  
+management: 
+ endpoint: 
+  health:
+   show-details: always
+ endpoints:
+  web: 
+   exposure:
+    include: health
+  health:
+   circuitbreakers:
+    enabled: true
+    
+resilience4j:
+ circuitbreaker:
+  instances:
+   loan-service:
+    registerHealthIndicator: true
+    failureRateThreshold: 50
+    minimumNumberOfCalls: 5
+    automaticTransitionFromOpenToHalfOpenEnabled: true
+    waitDurationInOpenState: 60s
+    permittedNumberOfCallsInHalfOpenState: 3
+    slidingWindowType: COUNT_BASED
+     
