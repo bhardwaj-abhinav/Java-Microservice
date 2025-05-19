@@ -1,0 +1,15 @@
+spring:
+ datasource:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  username: root
+  password: Abhi789!
+  url: jdbc:mysql://localhost:3306/spring_practice
+  hikari:
+   maximum-pool-size: 20
+ jpa:
+  hibernate:
+   ddl-auto: update
+  show-sql: true
+  
+ batch:
+  initialize-schema: ALWAYS
